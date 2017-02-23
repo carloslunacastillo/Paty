@@ -180,3 +180,62 @@ public class FiguraBidimensional extends Figura{
 	}
     
 }
+
+//clase MiLinea
+package miFigura;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.geom.Line2D;
+import java.awt.Stroke;
+
+public class MiLinea extends Figura{
+    public MiLinea () {
+	}
+
+	public MiLinea (int x, int y, Paint pintar, Stroke trazo) {
+		super (x, y, 0, 0, pintar, trazo);
+	}
+	
+	public MiLinea (int x1, int y1, int x2, int y2, Paint pintar, Stroke trazo) {
+		super (x1, y1, x2, y2, pintar, trazo);
+	}
+	
+	public void dibujar (Graphics2D g2d) {
+		super.dibujar(g2d);
+		g2d.draw (new Line2D.Double (puntoInicial.x, puntoInicial.y, puntoFinal.x, puntoFinal.y));
+	}
+}
+
+//clase MiCuadrado
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.geom.Rectangle2D;
+import java.awt.Stroke;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
+public class MiCuadrado extends FiguraBidimensional{
+    public MiCuadrado () {
+	}
+
+	public MiCuadrado (int x, int y, boolean estaRelleno, Paint pintar, Stroke trazo) {
+		super (x, y, estaRelleno, pintar, trazo);
+	}
+
+	public MiCuadrado (int x1, int y1, int x2, int y2, boolean estaRelleno, Paint pintar, Stroke trazo) {
+		super (min (x1, x2), min (y1, y2), max (x1, x2), max (y1, y2), estaRelleno, pintar, trazo);
+	}
+	
+	public void dibujar (Graphics2D g2d) {
+		super.dibujar(g2d);
+		Rectangle2D rect = new Rectangle2D.Double (puntoInicial.x,
+		    puntoInicial.y,
+		    puntoFinal.x - puntoInicial.x,
+		    puntoFinal.y - puntoInicial.y);
+	
+		if (estaRelleno ())
+			g2d.fill (rect);
+		else
+			g2d.draw (rect);
+	}
+}
