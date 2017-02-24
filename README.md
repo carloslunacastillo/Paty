@@ -1,10 +1,16 @@
 /*
 Instituto tecnologico de León
+
 Topicos Avanzados de Programación
+
 Profesor: NG. LEVY ROJAS CARLOS RAFAEL
+
 Debug Atom
+
 Equipo:
+
 -Carlos Leonardo Luna Castillo
+
 -Patricia Jazmín Ramírez Fonseca
  */
  
